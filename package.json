@@ -1,0 +1,17 @@
+{
+  "name": "john-galt-dashboard",
+  "private": true,
+  "workspaces": ["backend", "frontend"],
+  "scripts": {
+    "dev:backend": "cd backend && uvicorn app.main:app --reload --host 0.0.0.0",
+    "dev:frontend": "cd frontend && next dev",
+    "lint": "eslint --ext .ts,.tsx frontend && flake8 backend",
+    "test:backend": "pytest backend/tests",
+    "test:frontend": "cd frontend && jest",
+    "start": "pm2 start ecosystem.config.js"
+  },
+  "devDependencies": {
+    "eslint": "^8.0.0",
+    "prettier": "^2.0.0"
+  }
+}

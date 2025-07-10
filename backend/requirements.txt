@@ -1,0 +1,13 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy
+alembic
+psycopg2-binary
+pydantic
+PyJWT
+aioredis
+python-telegram-bot
+passlib[bcrypt]
+slowapi
+prometheus-fastapi-instrumentator
+loguru

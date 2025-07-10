@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  redis:
+    image: redis:7
+    ports: ["6379:6379"]
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    env_file: .env
+    volumes:
+      - ./ca.crt:/app/ca.crt:ro
+    depends_on: [redis]
+    ports: ["8000:8000"]
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    depends_on: [backend]
+    ports: ["3000:3000"]
